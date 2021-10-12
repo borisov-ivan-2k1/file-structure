@@ -2,17 +2,30 @@ import { Props, connector } from './Item.index';
 import { Tree } from 'components';
 
 const Component: React.FC<Props> = ({
-  data
+  data,
+  getStructure,
+  changeItemData
 }) => {
 
   if (!data) return <></>;
 
-  return <div style={{ paddingLeft: '20px' }}>
-    <span>
-       {data.title}
-    </span>
+  const handleOpenItem = () => {
+    if (!data.isFolder) return;
 
-    {data.children && <Tree data={data.children} />}
+    changeItemData({id: data.id, data: { isOpen: !data.isOpen }});
+    if (!data.isLoaded) getStructure(data.id);
+  }
+
+  return <div style={{ paddingLeft: '20px' }}>
+
+    <div onClick={handleOpenItem}>
+      <span>
+        {data.title}
+      </span>
+    </div>
+    
+
+    {(data.isOpen) && <Tree data={data.children} />}
   </div>
 }
 

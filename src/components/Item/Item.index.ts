@@ -1,7 +1,8 @@
 import { State } from 'redux/rootReducer';
 import { Action, bindActionCreators, Dispatch } from 'redux';
-import { connect, ConnectedProps  } from 'react-redux';
+import { connect, ConnectedProps } from 'react-redux';
 import { selectData, selectRootDirId } from 'redux/structure/selectors';
+import { getStructure, changeItemData } from 'redux/structure/actions';
 
 export const mapState = (state: State, { id }: IOwnProps) => {
   const rootDirId = selectRootDirId(state);
@@ -12,7 +13,8 @@ export const mapState = (state: State, { id }: IOwnProps) => {
 }
 
 export const mapDispatch = (dispatch: Dispatch<Action>) => bindActionCreators({
-  
+  getStructure,
+  changeItemData
 }, dispatch);
 
 
