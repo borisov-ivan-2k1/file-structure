@@ -13,3 +13,7 @@ export const initStructure: types.CInitStructure = () => ({
 /********************************************
 ****************** TO REDUCER ***************
 ********************************************/
+
+export const setStructure: types.CSetStructure = (payload) => ({ 
+  type: actionTypes.SET_STRUCTURE, payload 
+});

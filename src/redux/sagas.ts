@@ -4,7 +4,7 @@ import structure from './structure/saga';
 
 function* rootSaga() {
   yield all([
-    structure
+    structure()
   ])
 }
 
