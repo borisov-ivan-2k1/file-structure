@@ -1,10 +1,10 @@
 import React from 'react';
-import { Item } from 'components';
+import { Main } from 'components';
 
 const App = () => {
   return (
     <div className="App">
-      <Item />
+      <Main />
     </div>
   );
 }
