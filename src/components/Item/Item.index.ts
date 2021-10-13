@@ -8,7 +8,8 @@ export const mapState = (state: State, { id }: IOwnProps) => {
   const rootDirId = selectRootDirId(state);
   const dirId = id || rootDirId;
   return {
-    data: selectData(dirId)(state)
+    data: selectData(dirId)(state),
+    rootDirId
   }
 }
 
@@ -27,3 +28,6 @@ interface IOwnProps {
 }
 
 export interface Props extends IOwnProps, PropsFromRedux {}
+export interface StyledWrapperProps {
+  isRoot: boolean;
+}
