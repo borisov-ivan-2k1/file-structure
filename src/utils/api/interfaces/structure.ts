@@ -1,14 +1,9 @@
-
-export interface IStructureResponse extends Promise<ItemData> {
-  data: ItemData;
-}
-
-export type a = {data: ItemData};
+export type GetStrunctureResponse = Promise<ItemData>;
 
 export type ItemData = {
-  id: number;
-  title: string;
-  children: ItemData[] | undefined;
+  readonly id: number;
+  readonly title: string;
+  readonly children: ItemData[] | undefined;
 }
 
 export interface ItemReduxData extends ItemData {
@@ -16,5 +11,5 @@ export interface ItemReduxData extends ItemData {
   isLoading: boolean;
   isLoaded: boolean;
   isFolder: boolean;
-  children: ItemReduxData[] | undefined;
+  readonly children: ItemReduxData[] | undefined;
 }

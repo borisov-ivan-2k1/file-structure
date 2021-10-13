@@ -14,10 +14,10 @@ const itemToReduxType = (item: ItemData): ItemReduxData => {
   }
 }
 
-export const prepareDir = (item: ItemReduxData, children: ItemData[]): ItemReduxData => {
+export const prepareDir = (item: ItemReduxData, children?: ItemData[]): ItemReduxData => {
   return {
     ...item,
-    children: children.map(itemToReduxType)
+    children: children?.map(itemToReduxType)
   }
 } 
 

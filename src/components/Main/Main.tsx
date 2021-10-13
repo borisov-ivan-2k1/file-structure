@@ -1,6 +1,11 @@
 import { useEffect } from 'react';
 import { Props, connector } from './Main.index';
 import { Item } from 'components';
+import styled from 'styled-components';
+
+const StyledMain = styled.div `
+  display: inline-block;
+`
 
 const Component: React.FC<Props> = ({
   initStructure
@@ -8,11 +13,11 @@ const Component: React.FC<Props> = ({
 
   useEffect(() => {
     initStructure();
-  }, [])
+  }, [initStructure])
 
-return <div>
+return <StyledMain>
   <Item />
-</div>
+</StyledMain>
 }
 
 export const Main = connector(Component);
